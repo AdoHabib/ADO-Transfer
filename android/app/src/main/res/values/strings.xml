@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ADO Transfer</string>
+    <string name="welcome_message">Votre argent, votre liberté</string>
+    <string name="login_title">Connexion</string>
+    <string name="register_title">Inscription</string>
+    <string name="phone_number">Numéro de téléphone</string>
+    <string name="password">Mot de passe</string>
+    <string name="first_name">Prénom</string>
+    <string name="last_name">Nom</string>
+    <string name="email">Email</string>
+    <string name="login_button">Se connecter</string>
+    <string name="register_button">S\'inscrire</string>
+    <string name="no_account">Pas encore de compte ? S\'inscrire</string>
+    <string name="has_account">Déjà un compte ? Se connecter</string>
+    <string name="dashboard_title">Tableau de bord</string>
+    <string name="balance_available">Solde disponible</string>
+    <string name="quick_actions">Actions rapides</string>
+    <string name="send_money">Envoyer</string>
+    <string name="receive_money">Recevoir</string>
+    <string name="transaction_history">Historique</string>
+    <string name="recent_transactions">Transactions récentes</string>
+    <string name="see_all">Voir tout</string>
+    <string name="no_recent_transactions">Aucune transaction récente</string>
+    <string name="transfer_title">Transfert d\'argent</string>
+    <string name="recipient_phone">Numéro du destinataire</string>
+    <string name="amount">Montant</string>
+    <string name="description">Description (optionnel)</string>
+    <string name="pin">PIN de sécurité</string>
+    <string name="transfer_button">Effectuer le transfert</string>
+    <string name="profile_title">Profil</string>
+    <string name="logout">Déconnexion</string>
+    <string name="settings">Paramètres</string>
+    <string name="security">Sécurité</string>
+    <string name="help">Aide</string>
+    <string name="about">À propos</string>
+    <string name="error_network">Erreur de connexion</string>
+    <string name="error_invalid_credentials">Identifiants incorrects</string>
+    <string name="error_insufficient_balance">Solde insuffisant</string>
+    <string name="error_invalid_pin">PIN incorrect</string>
+    <string name="success_transfer">Transfert effectué avec succès</string>
+    <string name="success_register">Inscription réussie</string>
+    <string name="loading">Chargement...</string>
+    <string name="currency">EUR</string>
+</resources>
