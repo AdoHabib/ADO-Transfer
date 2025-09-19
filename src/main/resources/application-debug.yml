@@ -3,8 +3,8 @@ spring:
     url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
     hikari:
-      connection-timeout: 30000
-      maximum-pool-size: 5
+      connection-timeout: 60000
+      maximum-pool-size: 3
       minimum-idle: 1
       idle-timeout: 300000
       max-lifetime: 1200000
@@ -13,7 +13,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -24,7 +24,11 @@ spring:
           provider_disables_autocommit: true
     defer-datasource-initialization: true
 
-# Actuator Configuration for Production
+  sql:
+    init:
+      mode: never
+
+# Actuator Configuration
 management:
   endpoints:
     web:
@@ -33,18 +37,24 @@ management:
       base-path: /actuator
   endpoint:
     health:
-      show-details: when-authorized
+      show-details: always
       show-components: always
+  health:
+    defaults:
+      enabled: true
 
-# Logging for Production
+# Logging for Debug
 logging:
   level:
     com.adotransfer: DEBUG
-    org.springframework.security: INFO
-    org.springframework.boot.autoconfigure: INFO
-    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.web: DEBUG
     org.hibernate.SQL: DEBUG
-    org.springframework.boot: INFO
-    org.springframework.context: INFO
+    org.springframework.boot: DEBUG
+    org.springframework.context: DEBUG
+    org.springframework.orm.jpa: DEBUG
+    org.springframework.jdbc: DEBUG
+    com.zaxxer.hikari: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

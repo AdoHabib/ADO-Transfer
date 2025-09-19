@@ -3,13 +3,13 @@ spring:
     url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
     hikari:
-      connection-timeout: 20000
+      connection-timeout: 30000
       maximum-pool-size: 5
       minimum-idle: 1
       idle-timeout: 300000
       max-lifetime: 1200000
       leak-detection-threshold: 60000
-    
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -22,6 +22,7 @@ spring:
           time_zone: UTC
         connection:
           provider_disables_autocommit: true
+    defer-datasource-initialization: true
 
 # Actuator Configuration for Production
 management:
@@ -38,10 +39,12 @@ management:
 # Logging for Production
 logging:
   level:
-    com.adotransfer: INFO
-    org.springframework.security: WARN
-    org.springframework.boot.autoconfigure: WARN
-    org.springframework.web: WARN
-    org.hibernate.SQL: WARN
+    com.adotransfer: DEBUG
+    org.springframework.security: INFO
+    org.springframework.boot.autoconfigure: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
+    org.springframework.boot: INFO
+    org.springframework.context: INFO
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
