@@ -8,23 +8,14 @@ import com.adotransfer.repository.AccountRepository;
 import com.adotransfer.repository.UserRepository;
 import com.adotransfer.util.EncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
-public class UserService implements UserDetailsService {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -38,37 +29,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     private EncryptionUtil encryptionUtil;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByPhoneNumber(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Utilisateur non trouvé: " + username));
-        
-        return new org.springframework.security.core.userdetails.User(
-                user.getPhoneNumber(),
-                user.getPassword(),
-                user.getStatus().name().equals("ACTIVE"),
-                true,
-                true,
-                !user.getStatus().name().equals("BLOCKED"),
-                getAuthorities(user)
-        );
-    }
-    
-    private Collection<? extends GrantedAuthority> getAuthorities(User user) {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        
-        if (user.getKycVerified()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_VERIFIED_USER"));
-        }
-        
-        if (user.getIsVerified()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        }
-        
-        authorities.add(new SimpleGrantedAuthority("ROLE_BASIC"));
-        
-        return authorities;
-    }
 
     public UserResponse registerUser(RegisterRequest request) {
         // Vérifier si l'utilisateur existe déjà

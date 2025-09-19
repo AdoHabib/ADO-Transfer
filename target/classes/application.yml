@@ -8,9 +8,9 @@ spring:
     name: ado-transfer-app
   
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/ado_transfer}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:password}
+    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5432}/${PGDATABASE:ado_transfer}
+    username: ${PGUSER:postgres}
+    password: ${PGPASSWORD:password}
     driver-class-name: org.postgresql.Driver
     
   jpa:
@@ -36,7 +36,7 @@ spring:
 
 # JWT Configuration
 jwt:
-  secret: ${JWT_SECRET:mySecretKey123456789012345678901234567890}
+  secret: ${JWT_SECRET:da17ada9937dd2ba789252e9f14176b3646057b24566c060731ae4e9c7e3b9e71bac18321c68d1dc7d1b7cb8a8537f7d8f16ebfffedbd7a28f8bee460c340533}
   expiration: 86400000 # 24 hours
 
 # App Configuration
