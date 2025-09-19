@@ -1,0 +1,69 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: ado-transfer-app
+  
+  datasource:
+    url: jdbc:postgresql://${PGHOST:localhost}:${PGPORT:5432}/${PGDATABASE:ado_transfer}
+    username: ${PGUSER:postgres}
+    password: ${PGPASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:da17ada9937dd2ba789252e9f14176b3646057b24566c060731ae4e9c7e3b9e71bac18321c68d1dc7d1b7cb8a8537f7d8f16ebfffedbd7a28f8bee460c340533}
+  expiration: 86400000 # 24 hours
+
+# App Configuration
+app:
+  name: ADO Transfer
+  version: 1.0.0
+  currency: EUR
+  min-transfer-amount: 1.0
+  max-transfer-amount: 10000.0
+  transfer-fee-percentage: 0.5
+
+# Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+      show-components: always
+
+# Logging
+logging:
+  level:
+    com.adotransfer: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
