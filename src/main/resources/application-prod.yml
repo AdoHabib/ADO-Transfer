@@ -1,56 +1,47 @@
-server:
-  port: ${PORT:8080}
-  servlet:
-    context-path: /api
-
 spring:
-  application:
-    name: ado-transfer-app
-  
   datasource:
     url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+      minimum-idle: 1
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      leak-detection-threshold: 60000
     
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: false
-        
-  mail:
-    host: ${MAIL_HOST:smtp.gmail.com}
-    port: ${MAIL_PORT:587}
-    username: ${MAIL_USERNAME:}
-    password: ${MAIL_PASSWORD:}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+        connection:
+          provider_disables_autocommit: true
 
-# JWT Configuration
-jwt:
-  secret: ${JWT_SECRET}
-  expiration: 86400000 # 24 hours
+# Actuator Configuration for Production
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+      show-components: always
 
-# App Configuration
-app:
-  name: ADO Transfer
-  version: 1.0.0
-  currency: EUR
-  min-transfer-amount: 1.0
-  max-transfer-amount: 10000.0
-  transfer-fee-percentage: 0.5
-
-# Logging
+# Logging for Production
 logging:
   level:
     com.adotransfer: INFO
     org.springframework.security: WARN
-    org.hibernate: WARN
+    org.springframework.boot.autoconfigure: WARN
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
