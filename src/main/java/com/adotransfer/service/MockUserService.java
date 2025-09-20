@@ -56,5 +56,9 @@ public class MockUserService {
         // Mock verification - always return true for testing
         return true;
     }
+
+    public void verifyUser(Long userId) {
+        // Mock verification - do nothing
+    }
 }
 
