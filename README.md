@@ -181,7 +181,27 @@ mvn test jacoco:report
 
 ## 📱 Application Mobile
 
-L'application mobile Android sera développée séparément et communiquera avec cette API REST.
+### 🌐 Accès Web Mobile
+L'application est accessible depuis n'importe quel smartphone via navigateur web :
+
+**URL d'accès :** `https://ado-transfer.up.railway.app/`
+
+### 📱 Guide d'Utilisation Mobile
+- **[Documentation Mobile Complète](DOCUMENTAZIONE_MOBILE.md)** - Guide détaillé pour smartphone
+- **[Guide Rapide Mobile](GUIDA_RAPIDA_MOBILE.md)** - Instructions rapides d'accès
+
+### 🔧 Fonctionnalités Mobile
+- ✅ Interface responsive pour smartphone
+- ✅ Ajout à l'écran d'accueil (PWA)
+- ✅ API REST accessible depuis mobile
+- ✅ Documentation Swagger interactive
+- ✅ Authentification JWT sécurisée
+
+### 📲 Test Rapide sur Mobile
+1. Ouvrez votre navigateur mobile
+2. Allez à : `https://ado-transfer.up.railway.app/`
+3. Testez l'API : `https://ado-transfer.up.railway.app/api/swagger-ui.html`
+4. Ajoutez à l'écran d'accueil pour un accès rapide
 
 ## 🔒 Sécurité
 

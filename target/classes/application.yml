@@ -61,6 +61,16 @@ management:
       show-details: when-authorized
       show-components: always
 
+# Swagger/OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
+
 # Logging
 logging:
   level:
