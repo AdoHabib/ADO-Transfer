@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["maven"]
+
+[phases.build]
+cmds = ["mvn clean package -DskipTests"]
+
+[start]
+cmd = "java -Dspring.profiles.active=no-db -jar target/ado-transfer-app-0.0.1-SNAPSHOT.jar"
