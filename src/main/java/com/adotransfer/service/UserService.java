@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
+@Profile("!no-db")
 public class UserService {
 
     @Autowired

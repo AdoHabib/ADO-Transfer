@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
+@Profile("!no-db")
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired

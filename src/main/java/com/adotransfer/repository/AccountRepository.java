@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
+@Profile("!no-db")
 public interface AccountRepository extends JpaRepository<Account, Long> {
     
     Optional<Account> findByUser(User user);

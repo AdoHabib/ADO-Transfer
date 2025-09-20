@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 
 @Service
 @Transactional
+@Profile("!no-db")
 public class AccountService {
 
     @Autowired

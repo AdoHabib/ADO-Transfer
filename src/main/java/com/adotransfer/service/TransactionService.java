@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
+@Profile("!no-db")
 public class TransactionService {
 
     @Autowired
