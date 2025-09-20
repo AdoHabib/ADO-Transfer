@@ -2,6 +2,7 @@ package com.adotransfer.repository;
 
 import com.adotransfer.model.Transaction;
 import com.adotransfer.model.User;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

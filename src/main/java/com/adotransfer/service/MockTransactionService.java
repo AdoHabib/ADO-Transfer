@@ -21,7 +21,7 @@ public class MockTransactionService {
         mockTransaction.setId(1L);
         mockTransaction.setTransactionId("MOCK_TXN_123");
         mockTransaction.setAmount(request.getAmount());
-        mockTransaction.setTransactionType(TransactionType.TRANSFER);
+        mockTransaction.setType(TransactionType.TRANSFER);
         mockTransaction.setDescription(request.getDescription());
         mockTransaction.setStatus(TransactionStatus.COMPLETED);
         mockTransaction.setCreatedAt(LocalDateTime.now());
