@@ -5,7 +5,7 @@ import com.adotransfer.dto.LoginRequest;
 import com.adotransfer.dto.RegisterRequest;
 import com.adotransfer.dto.UserResponse;
 import com.adotransfer.security.JwtUtil;
-import com.adotransfer.service.UserService;
+import com.adotransfer.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -26,7 +26,7 @@ import java.util.Map;
 public class AuthController {
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired
     private AuthenticationManager authenticationManager;

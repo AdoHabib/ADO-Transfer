@@ -18,7 +18,7 @@ import java.util.List;
 
 @Service
 @Profile("no-db")
-public class MockTransactionService {
+public class MockTransactionService implements ITransactionService {
 
     public TransactionResponse transferMoney(Long senderId, TransferRequest request) {
         // Mock transaction response

@@ -2,8 +2,8 @@ package com.adotransfer.controller;
 
 import com.adotransfer.dto.ApiResponse;
 import com.adotransfer.model.Account;
-import com.adotransfer.service.AccountService;
-import com.adotransfer.service.UserService;
+import com.adotransfer.service.IAccountService;
+import com.adotransfer.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,10 +21,10 @@ import java.math.BigDecimal;
 public class AccountController {
 
     @Autowired
-    private AccountService accountService;
+    private IAccountService accountService;
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @GetMapping("/balance")
     @Operation(summary = "Obtenir le solde du compte de l'utilisateur connecté")

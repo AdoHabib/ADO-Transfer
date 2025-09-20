@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Service
 @Transactional
 @Profile("!no-db")
-public class AccountService {
+public class AccountService implements IAccountService {
 
     @Autowired
     private AccountRepository accountRepository;

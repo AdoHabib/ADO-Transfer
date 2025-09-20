@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 @Profile("!no-db")
-public class TransactionService {
+public class TransactionService implements ITransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;

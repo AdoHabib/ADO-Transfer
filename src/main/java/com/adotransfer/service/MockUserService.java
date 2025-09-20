@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile("no-db")
-public class MockUserService {
+public class MockUserService implements IUserService {
 
     public UserResponse registerUser(RegisterRequest request) {
         // Mock response for testing
@@ -60,5 +60,26 @@ public class MockUserService {
     public void verifyUser(Long userId) {
         // Mock verification - do nothing
     }
+
+    public UserResponse updateUser(Long id, RegisterRequest request) {
+        // Mock response
+        User mockUser = new User();
+        mockUser.setId(id);
+        mockUser.setFirstName(request.getFirstName());
+        mockUser.setLastName(request.getLastName());
+        mockUser.setEmail(request.getEmail());
+        return new UserResponse(mockUser);
+    }
+
+    public void setUserPin(Long userId, String pin) {
+        // Mock set pin - do nothing
+    }
+
+    public void verifyKyc(Long userId) {
+        // Mock KYC verification - do nothing
+    }
 }
+
+
+
 

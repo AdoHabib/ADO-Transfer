@@ -3,8 +3,8 @@ package com.adotransfer.controller;
 import com.adotransfer.dto.ApiResponse;
 import com.adotransfer.dto.TransferRequest;
 import com.adotransfer.dto.TransactionResponse;
-import com.adotransfer.service.TransactionService;
-import com.adotransfer.service.UserService;
+import com.adotransfer.service.ITransactionService;
+import com.adotransfer.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,10 +29,10 @@ import java.util.List;
 public class TransactionController {
 
     @Autowired
-    private TransactionService transactionService;
+    private ITransactionService transactionService;
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @PostMapping("/transfer")
     @Operation(summary = "Effectuer un transfert d'argent")

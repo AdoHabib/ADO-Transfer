@@ -3,7 +3,7 @@ package com.adotransfer.controller;
 import com.adotransfer.dto.ApiResponse;
 import com.adotransfer.dto.RegisterRequest;
 import com.adotransfer.dto.UserResponse;
-import com.adotransfer.service.UserService;
+import com.adotransfer.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @GetMapping("/profile")
     @Operation(summary = "Obtenir le profil de l'utilisateur connecté")
