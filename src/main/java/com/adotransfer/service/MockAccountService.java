@@ -2,7 +2,6 @@ package com.adotransfer.service;
 
 import com.adotransfer.model.Account;
 import com.adotransfer.model.AccountStatus;
-import com.adotransfer.model.User;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -59,48 +58,6 @@ public class MockAccountService implements IAccountService {
     public void activateAccount(Long userId) {
         // Mock activate - do nothing
     }
-}
-
-
-
-        // Mock account
-
-        Account mockAccount = new Account();
-
-        mockAccount.setId(1L);
-
-        mockAccount.setAccountNumber(accountNumber);
-
-        mockAccount.setBalance(BigDecimal.valueOf(1000.00));
-
-        return mockAccount;
-
-    }
-
-
-
-    public BigDecimal getBalance(Long userId) {
-
-        return BigDecimal.valueOf(1000.00);
-
-    }
-
-
-
-    public void deposit(Long userId, BigDecimal amount) {
-
-        // Mock deposit - do nothing
-
-    }
-
-
-
-    public void withdraw(Long userId, BigDecimal amount) {
-
-        // Mock withdrawal - do nothing
-
-    }
-
 }
 
 
