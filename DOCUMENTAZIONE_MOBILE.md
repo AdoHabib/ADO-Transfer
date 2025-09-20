@@ -14,6 +14,7 @@ ADO Transfer è un'applicazione di trasferimento di denaro simile a Orange Money
 #### **Passo 2: Verifica la Connessione**
 - Dovresti vedere la pagina di benvenuto con le informazioni dell'applicazione
 - Se vedi le informazioni dell'app, la connessione è riuscita ✅
+- **Nota:** Se vedi "404 Not Found", l'applicazione potrebbe essere in fase di deployment
 
 #### **Passo 3: Accedi alla Documentazione API**
 - Per testare l'API, vai a: `https://ado-transfer.up.railway.app/api/swagger-ui.html`
