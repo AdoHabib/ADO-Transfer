@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it", "fr". "en">
+<html lang="it", "fr", "en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADO Transfer - App Mobile</title>
+    <title th:text="${application} + ' - App Mobile'">ADO Transfer - App Mobile</title>
     <style>
         * {
             margin: 0;
@@ -101,6 +101,7 @@
             background: #f8f9fa;
             border-radius: 10px;
             border-left: 4px solid #667eea;
+            white-space: pre-line;
         }
 
         .error {
@@ -158,6 +159,24 @@
             word-break: break-all;
         }
 
+        .app-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .app-info h3 {
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+
+        .app-info p {
+            color: #666;
+            font-size: 14px;
+        }
+
         @media (max-width: 480px) {
             .container {
                 margin: 10px;
@@ -178,10 +197,16 @@
     <div class="container">
         <div class="header">
             <h1>📱 ADO Transfer</h1>
-            <p>App di trasferimento denaro</p>
+            <p th:text="${message}">App di trasferimento denaro</p>
         </div>
 
         <div class="content">
+            <div class="app-info">
+                <h3 th:text="${application}">ADO Transfer</h3>
+                <p>Versione <span th:text="${version}">1.0.0</span> - Profilo: <span th:text="${profile}">no-db</span></p>
+                <p>Status: <span th:text="${status}">UP</span> ✅</p>
+            </div>
+
             <div class="status offline" id="status">
                 🔴 Controllo connessione...
             </div>
