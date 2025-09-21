@@ -10,13 +10,14 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**")
+        registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/")
                 .setCachePeriod(3600);
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        // Non aggiungere view controllers qui, lasciamo che HomeController gestisca le routes
+        registry.addViewController("/").setViewName("forward:/index.html");
+        registry.addViewController("/index.html").setViewName("forward:/index.html");
     }
 }

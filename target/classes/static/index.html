@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it", "fr", "en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${application} + ' - App Mobile'">ADO Transfer - App Mobile</title>
+    <title>ADO Transfer - App Mobile</title>
     <style>
         * {
             margin: 0;
@@ -197,14 +197,14 @@
     <div class="container">
         <div class="header">
             <h1>📱 ADO Transfer</h1>
-            <p th:text="${message}">App di trasferimento denaro</p>
+            <p>App di trasferimento denaro</p>
         </div>
 
         <div class="content">
             <div class="app-info">
-                <h3 th:text="${application}">ADO Transfer</h3>
-                <p>Versione <span th:text="${version}">1.0.0</span> - Profilo: <span th:text="${profile}">no-db</span></p>
-                <p>Status: <span th:text="${status}">UP</span> ✅</p>
+                <h3>ADO Transfer</h3>
+                <p>Versione 1.0.0 - Profilo: no-db</p>
+                <p>Status: UP ✅</p>
             </div>
 
             <div class="status offline" id="status">
