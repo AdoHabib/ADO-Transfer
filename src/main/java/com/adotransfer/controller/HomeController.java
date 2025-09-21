@@ -4,6 +4,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
@@ -22,6 +23,11 @@ public class HomeController {
         model.addAttribute("profile", getActiveProfile());
         model.addAttribute("status", "UP");
         return "index";
+    }
+
+    @GetMapping("/index.html")
+    public String index(Model model) {
+        return home(model);
     }
 
     private String getActiveProfile() {
